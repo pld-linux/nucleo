@@ -3,14 +3,14 @@ Summary(pl):	Narzêdzie do odkrywania nowych zastosowañ grafiki
 Name:		nucleo
 #%%define	_tardate	2004-11-16
 #%%define	_snap	%(echo %{_tardate} | sed s/-//g)
-%define		_snap	20041130
+%define		_snap	20041216
 Version:	0.1
 Release:	0.%{_snap}.1
 License:	LGPL
 Group:		X11
 #Source0:	http://insitu.lri.fr/~roussel/software/src/%{name}-%{_tardate}.tar.bz2
 Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_snap}.tar.bz2
-# Source0-md5:	70fae9328b7695c04dd09d5bae6ed11d
+# Source0-md5:	7289ebb41002f132e75c7ec0ad13cf44
 URL:		http://insitu.lri.fr/~roussel/projects/nucleo/
 BuildRequires:	XFree86-OpenGL-devel
 BuildRequires:	XFree86-OpenGL-devel-base

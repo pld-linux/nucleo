@@ -1,0 +1,15 @@
+--- nucleo-2005-02-16/nucleo/gl/texture/glTextureTile.cxx~	2005-01-06 15:43:21.000000000 +0100
++++ nucleo-2005-02-16/nucleo/gl/texture/glTextureTile.cxx	2005-03-29 19:34:07.000000000 +0200
+@@ -32,10 +32,9 @@
+   getTargetName(GLenum target) {
+     switch(target) {
+     case GL_TEXTURE_2D: return "GL_TEXTURE_2D" ;
+-#ifdef GL_TEXTURE_RECTANGLE_EXT
++#if defined(GL_TEXTURE_RECTANGLE_EXT)
+     case GL_TEXTURE_RECTANGLE_EXT: return "GL_TEXTURE_RECTANGLE_EXT" ;
+-#endif
+-#ifdef GL_TEXTURE_RECTANGLE_NV
++#elif defined(GL_TEXTURE_RECTANGLE_NV)
+     case GL_TEXTURE_RECTANGLE_NV: return "GL_TEXTURE_RECTANGLE_NV" ;
+ #endif
+     default: return "<unknown>" ;

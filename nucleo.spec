@@ -1,20 +1,19 @@
 Summary:	A toolking for exploring new uses of video
 Summary(pl):	Narzêdzie do odkrywania nowych zastosowañ grafiki
 Name:		nucleo
-#%%define	_tardate	2004-11-16
-#%%define	_snap	%(echo %{_tardate} | sed s/-//g)
-%define		_snap	20041216
+%define	_tardate	2005-02-16
+%define	_snap	%(echo %{_tardate} | sed s/-//g)
+#%%define		_snap	20041216
 Version:	0.1
 Release:	0.%{_snap}.1
-License:	LGPL
+License:	LGPL v2.1
 Group:		X11
-#Source0:	http://insitu.lri.fr/~roussel/software/src/%{name}-%{_tardate}.tar.bz2
-Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_snap}.tar.bz2
-# Source0-md5:	7289ebb41002f132e75c7ec0ad13cf44
+Source0:	http://insitu.lri.fr/~roussel/software/src/%{name}-%{_tardate}.tar.bz2
+# Source0-md5:	ff09a736e5e0f04ad8c67019fe73f221
+#Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_snap}.tar.bz2
+Patch0:		%{name}-nv.patch
 URL:		http://insitu.lri.fr/~roussel/projects/nucleo/
 BuildRequires:	XFree86-OpenGL-devel
-BuildRequires:	XFree86-OpenGL-devel-base
-	#don't work with nvidia-devel ?!
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libjpeg-devel
@@ -46,8 +45,9 @@ Header files for nucleo.
 Pliki nag³ówkowe dla nucleo.
 
 %prep
-#%setup -q -n %{name}-%{_tardate}
-%setup -q
+%setup -q -n %{name}-%{_tardate}
+#%%setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -63,6 +63,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+#some script for MacOS
+rm $RPM_BUILD_ROOT%{_bindir}/nBundle 
 
 %clean
 rm -rf $RPM_BUILD_ROOT

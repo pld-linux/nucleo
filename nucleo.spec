@@ -13,16 +13,15 @@ Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_sn
 # Source0-md5:	e519537ef61cacad133102cea1e6cd61
 # Source0-size:	665254
 URL:		http://insitu.lri.fr/~roussel/projects/
-#BuildRequires:	autoconf
-#BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-#BuildRequires:	libtool
+BuildRequires:	libtool
 BuildRequires:	XFree86-OpenGL-devel
 BuildRequires:	XFree86-OpenGL-devel-base
 	#don't work with nvidia-devel ?!
-Requires(pre,postun):	ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,11 +51,11 @@ Pliki nag³ówkowe dla nucleo.
 %setup -q
 
 %build
-#%{__libtoolize}
-#%{__aclocal}
-#%{__autoconf}
-#%{__autoheader}
-#%{__automake}
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 

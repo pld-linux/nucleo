@@ -1,8 +1,8 @@
 Summary:	A toolking for exploring new uses of video
 Summary(pl):	Narzêdzie do odkrywania nowych zastosowañ grafiki
 Name:		nucleo
-#%define	_tardate	2004-07-11
-#%define	_snap	%(echo %{_tardate} | sed s/-//g)
+#%%define	_tardate	2004-07-11
+#%%define	_snap	%(echo %{_tardate} | sed s/-//g)
 %define		_snap	20040721
 Version:	0.1
 Release:	0.%{_snap}.1
@@ -13,15 +13,15 @@ Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_sn
 # Source0-md5:	e519537ef61cacad133102cea1e6cd61
 # Source0-size:	665254
 URL:		http://insitu.lri.fr/~roussel/projects/nucleo/
+BuildRequires:	XFree86-OpenGL-devel
+BuildRequires:	XFree86-OpenGL-devel-base
+	#don't work with nvidia-devel ?!
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	XFree86-OpenGL-devel
-BuildRequires:	XFree86-OpenGL-devel-base
-	#don't work with nvidia-devel ?!
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,7 +33,6 @@ previous toolkit named videoSpace.
 Nucleo to narzêdzie do odkrywania nowych zastosowañ grafiki oraz
 technik interakcji cz³owiek - komputer. Wiêkszo¶æ zaczerpniêta
 zosta³a z toolkitu videoSpace.
-
 
 %package devel
 Summary:	Header files for nucleo
@@ -69,22 +68,21 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/[^n]*
+%attr(755,root,root) %{_bindir}/[!n]*
 %attr(755,root,root) %{_bindir}/nTest
 %attr(755,root,root) %{_libdir}/libNucleo.so.*.*
 %{_datadir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libNucleo.so
 %attr(755,root,root) %{_bindir}/nucleo-config
+%attr(755,root,root) %{_libdir}/libNucleo.so
 %{_libdir}/libNucleo.la
 %{_includedir}/%{name}
 %{_pkgconfigdir}/%{name}.pc

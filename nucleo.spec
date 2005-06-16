@@ -1,7 +1,7 @@
 Summary:	A toolking for exploring new uses of video
 Summary(pl):	Narzêdzie do odkrywania nowych zastosowañ grafiki
 Name:		nucleo
-%define	_tardate	2005-02-16
+%define	_tardate	2005-06-03
 %define	_snap	%(echo %{_tardate} | sed s/-//g)
 #%%define		_snap	20041216
 Version:	0.1
@@ -9,7 +9,7 @@ Release:	0.%{_snap}.1
 License:	LGPL v2.1
 Group:		X11
 Source0:	http://insitu.lri.fr/~roussel/software/src/%{name}-%{_tardate}.tar.bz2
-# Source0-md5:	ff09a736e5e0f04ad8c67019fe73f221
+# Source0-md5:	59c7153eb269d6ab5325b54763d567f8
 #Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_snap}.tar.bz2
 Patch0:		%{name}-nv.patch
 URL:		http://insitu.lri.fr/~roussel/projects/nucleo/

@@ -20,6 +20,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+Requires:	fonts-TTF-bitstream-vera
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,7 +65,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 #some script for MacOS
-rm $RPM_BUILD_ROOT%{_bindir}/nBundle 
+rm $RPM_BUILD_ROOT%{_bindir}/nBundle
+
+cd $RPM_BUILD_ROOT%{_datadir}/%{name}/fonts
+VERA=$(ls Vera*.ttf)
+for FONT in $VERA; do
+	rm -f $FONT
+	ln -s %{_fontsdir}/TTF/$FONT .
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT

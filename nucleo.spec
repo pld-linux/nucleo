@@ -1,5 +1,5 @@
 Summary:	A toolking for exploring new uses of video
-Summary(pl):	Narzêdzie do odkrywania nowych zastosowañ grafiki
+Summary(pl.UTF-8):   NarzÄ™dzie do odkrywania nowych zastosowaÅ„ grafiki
 Name:		nucleo
 %define	_tardate	2005-06-03
 %define	_snap	%(echo %{_tardate} | sed s/-//g)
@@ -28,22 +28,22 @@ Nucleo is a toolking for exploring new uses of video and new
 human-computer interaction techniques. Most of it comes from a
 previous toolkit named videoSpace.
 
-%description -l pl
-Nucleo to narzêdzie do odkrywania nowych zastosowañ grafiki oraz
-technik interakcji cz³owiek - komputer. Wiêkszo¶æ zaczerpniêta
-zosta³a z toolkitu videoSpace.
+%description -l pl.UTF-8
+Nucleo to narzÄ™dzie do odkrywania nowych zastosowaÅ„ grafiki oraz
+technik interakcji czÅ‚owiek - komputer. WiÄ™kszoÅ›Ä‡ zaczerpniÄ™ta
+zostaÅ‚a z toolkitu videoSpace.
 
 %package devel
 Summary:	Header files for nucleo
-Summary(pl):	Pliki nag³ówkowe dla nucleo
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla nucleo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for nucleo.
 
-%description devel -l pl
-Pliki nag³ówkowe dla nucleo.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe dla nucleo.
 
 %prep
 %setup -q -n %{name}-%{_tardate}

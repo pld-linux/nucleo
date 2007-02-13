@@ -1,5 +1,5 @@
 Summary:	A toolking for exploring new uses of video
-Summary(pl.UTF-8):   Narzędzie do odkrywania nowych zastosowań grafiki
+Summary(pl.UTF-8):	Narzędzie do odkrywania nowych zastosowań grafiki
 Name:		nucleo
 %define	_tardate	2005-06-03
 %define	_snap	%(echo %{_tardate} | sed s/-//g)
@@ -35,7 +35,7 @@ została z toolkitu videoSpace.
 
 %package devel
 Summary:	Header files for nucleo
-Summary(pl.UTF-8):   Pliki nagłówkowe dla nucleo
+Summary(pl.UTF-8):	Pliki nagłówkowe dla nucleo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 

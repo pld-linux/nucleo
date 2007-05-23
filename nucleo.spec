@@ -1,19 +1,15 @@
 Summary:	A toolking for exploring new uses of video
 Summary(pl.UTF-8):	Narzędzie do odkrywania nowych zastosowań grafiki
 Name:		nucleo
-%define	_tardate	2005-06-03
-%define	_snap	%(echo %{_tardate} | sed s/-//g)
-#%%define		_snap	20041216
-Version:	0.1
-Release:	0.%{_snap}.1
+Version:	0.6
+Release:	1
 License:	LGPL v2.1
 Group:		X11
-Source0:	http://insitu.lri.fr/~roussel/software/src/%{name}-%{_tardate}.tar.bz2
-# Source0-md5:	59c7153eb269d6ab5325b54763d567f8
-#Source0:	http://insitu.lri.fr/~chapuis/software/metisse/%{name}-%{version}-%{_snap}.tar.bz2
-Patch0:		%{name}-nv.patch
+Source0:	http://insitu.lri.fr/metisse/download/latest/nucleo-0.6.tar.bz2
+# Source0-md5:	b36f7d8deac7069da2c4db961735d15e
+#Patch0:		%{name}-nv.patch
 URL:		http://insitu.lri.fr/~roussel/projects/nucleo/
-BuildRequires:	XFree86-OpenGL-devel
+BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libjpeg-devel
@@ -46,9 +42,9 @@ Header files for nucleo.
 Pliki nagłówkowe dla nucleo.
 
 %prep
-%setup -q -n %{name}-%{_tardate}
+%setup -q
 #%%setup -q
-%patch0 -p1
+#%patch0 -p1
 
 %build
 %{__libtoolize}

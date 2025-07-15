@@ -44,7 +44,7 @@ Pliki nagłówkowe dla nucleo.
 %prep
 %setup -q
 #%%setup -q
-#%patch0 -p1
+#%%patch0 -p1
 
 %build
 %{__libtoolize}
